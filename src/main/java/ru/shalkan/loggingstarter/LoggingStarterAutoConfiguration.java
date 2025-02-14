@@ -1,4 +1,4 @@
-package ru.shalkan;
+package ru.shalkan.loggingstarter;
 
 public class LoggingStarterAutoConfiguration {
 
