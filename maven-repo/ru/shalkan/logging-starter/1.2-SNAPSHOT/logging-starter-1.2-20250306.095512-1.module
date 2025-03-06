@@ -1,0 +1,76 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ru.shalkan",
+    "module": "logging-starter",
+    "version": "1.2-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "logging-starter-1.2-SNAPSHOT.jar",
+          "url": "logging-starter-1.2-SNAPSHOT.jar",
+          "size": 5071,
+          "sha512": "55d19b6276e6f0c94a0042ec18f7af2fdc7798fe81837176f766b260f7a677fa27a301669f24ab591bfb111d55649314432e66fd27254a67a7b7f5b31e3cbd24",
+          "sha256": "6192976a3ccff2022c1beb27bb87b162fca8ab8f03f68e0af996b0fc207f4da8",
+          "sha1": "49e6e0e257f424f00cef465e7559b3d508ca5ea6",
+          "md5": "5e106c72745f72b03092f5a6e7dede4b"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-web",
+          "version": {
+            "requires": "3.2.5"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-aop",
+          "version": {
+            "requires": "3.2.5"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "logging-starter-1.2-SNAPSHOT.jar",
+          "url": "logging-starter-1.2-SNAPSHOT.jar",
+          "size": 5071,
+          "sha512": "55d19b6276e6f0c94a0042ec18f7af2fdc7798fe81837176f766b260f7a677fa27a301669f24ab591bfb111d55649314432e66fd27254a67a7b7f5b31e3cbd24",
+          "sha256": "6192976a3ccff2022c1beb27bb87b162fca8ab8f03f68e0af996b0fc207f4da8",
+          "sha1": "49e6e0e257f424f00cef465e7559b3d508ca5ea6",
+          "md5": "5e106c72745f72b03092f5a6e7dede4b"
+        }
+      ]
+    }
+  ]
+}
