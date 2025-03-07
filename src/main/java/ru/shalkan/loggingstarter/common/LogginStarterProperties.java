@@ -2,20 +2,22 @@ package ru.shalkan.loggingstarter.common;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.List;
+
 @ConfigurationProperties("logging")
-public class ConfigProperties {
+public class LogginStarterProperties {
 
     /**
      * json пути, которые будут маскированы при логировании тела запроса, разделенные ;
      * <a href="https://github.com/json-path/JsonPath">lib that used to work with json paths</a>
      */
-    private String webRequestBodyMaskedProps;
+    private List<String> webRequestBodyMaskedProps;
 
-    public String getWebRequestBodyMaskedProps() {
+    public List<String> getWebRequestBodyMaskedProps() {
         return webRequestBodyMaskedProps;
     }
 
-    public void setWebRequestBodyMaskedProps(String webRequestBodyMaskedProps) {
+    public void setWebRequestBodyMaskedProps(List<String> webRequestBodyMaskedProps) {
         this.webRequestBodyMaskedProps = webRequestBodyMaskedProps;
     }
 }

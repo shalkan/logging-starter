@@ -3,26 +3,26 @@
   <groupId>ru.shalkan</groupId>
   <artifactId>logging-starter</artifactId>
   <versioning>
-    <lastUpdated>20250306135217</lastUpdated>
+    <lastUpdated>20250307164956</lastUpdated>
     <snapshot>
-      <timestamp>20250306.135217</timestamp>
-      <buildNumber>3</buildNumber>
+      <timestamp>20250307.164956</timestamp>
+      <buildNumber>4</buildNumber>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>1.3-20250306.135217-3</value>
-        <updated>20250306135217</updated>
-      </snapshotVersion>
-      <snapshotVersion>
-        <extension>jar</extension>
-        <value>1.3-20250306.135217-3</value>
-        <updated>20250306135217</updated>
+        <value>1.3-20250307.164956-4</value>
+        <updated>20250307164956</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>module</extension>
-        <value>1.3-20250306.135217-3</value>
-        <updated>20250306135217</updated>
+        <value>1.3-20250307.164956-4</value>
+        <updated>20250307164956</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.3-20250307.164956-4</value>
+        <updated>20250307164956</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
