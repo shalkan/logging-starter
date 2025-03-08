@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.MapFunction;
 import com.jayway.jsonpath.Option;
 import com.jayway.jsonpath.PathNotFoundException;
 import org.slf4j.Logger;
@@ -43,10 +44,11 @@ public class MaskingHelper {
 
         for (String attributePath : logginStarterProperties.getWebRequestBodyMaskedProps()) {
             try {
-                Object val = JsonPath.read(document, attributePath);
-                if (val != null) {
-                    context = context.set(attributePath, "***");
-                }
+                context.map(attributePath, (o, configuration) -> "***");
+//                Object val = JsonPath.read(document, attributePath);
+//                if (val != null) {
+//                    context = context.set(attributePath, "***");
+//                }
             } catch (PathNotFoundException e) {
                 log.warn("Свойство {} для маскирования не найдено в запросе", attributePath);
             }
