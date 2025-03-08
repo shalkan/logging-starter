@@ -26,19 +26,7 @@ public class MaskingHelper {
     public String prepareMaskedBody(Object body) {
         try {
             Object document = conf.jsonProvider().parse(mapper.writeValueAsString(body));
-            DocumentContext context = JsonPath.parse(document);
-
-            for (String attributePath : logginStarterProperties.getWebRequestBodyMaskedProps()) {
-                try {
-                    Object val = JsonPath.read(document, attributePath);
-                    if (val != null) {
-                        context = context.set(attributePath, "***");
-                    }
-                } catch (PathNotFoundException e) {
-                    log.warn("Свойство {} для маскирования не найдено в запросе", attributePath);
-                }
-            }
-            return context.jsonString();
+            return doMasking(document);
         } catch (JsonProcessingException e) {
             log.warn("Ошибка при маскировании", e);
             return body.toString();
@@ -47,6 +35,10 @@ public class MaskingHelper {
 
     public String prepareMaskedBody(String body) {
         Object document = conf.jsonProvider().parse(body);
+        return doMasking(document);
+    }
+
+    private String doMasking(Object document) {
         DocumentContext context = JsonPath.parse(document);
 
         for (String attributePath : logginStarterProperties.getWebRequestBodyMaskedProps()) {
