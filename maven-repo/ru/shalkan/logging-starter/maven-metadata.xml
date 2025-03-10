@@ -3,7 +3,7 @@
   <groupId>ru.shalkan</groupId>
   <artifactId>logging-starter</artifactId>
   <versioning>
-    <latest>1.3-SNAPSHOT</latest>
+    <latest>1.3.1-SNAPSHOT</latest>
     <versions>
       <version>1.0-SNAPSHOT</version>
       <version>1.1-SNAPSHOT</version>
@@ -15,6 +15,6 @@
       <version>1.3.4-SNAPSHOT</version>
       <version>1.4-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20250308050515</lastUpdated>
+    <lastUpdated>20250310122232</lastUpdated>
   </versioning>
 </metadata>

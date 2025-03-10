@@ -7,6 +7,7 @@ import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.Option;
 import com.jayway.jsonpath.PathNotFoundException;
+import io.micrometer.common.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,9 @@ public class MaskingHelper {
     }
 
     private String doMasking(Object document) {
+        if (StringUtils.isEmpty(document.toString())) {
+            return "";
+        }
         DocumentContext context = JsonPath.parse(document);
 
         for (String attributePath : logginStarterProperties.getWebRequestBodyMaskedProps()) {
