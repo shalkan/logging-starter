@@ -11,14 +11,14 @@ import io.micrometer.common.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.shalkan.loggingstarter.common.LogginStarterProperties;
+import ru.shalkan.loggingstarter.common.LoggingStarterProperties;
 
 public class MaskingHelper {
 
     private static final Logger log = LoggerFactory.getLogger(MaskingHelper.class);
 
     @Autowired
-    private LogginStarterProperties logginStarterProperties;
+    private LoggingStarterProperties loggingStarterProperties;
 
     @Autowired
     private ObjectMapper mapper;
@@ -45,7 +45,7 @@ public class MaskingHelper {
         }
         DocumentContext context = JsonPath.parse(document);
 
-        for (String attributePath : logginStarterProperties.getWebRequestBodyMaskedProps()) {
+        for (String attributePath : loggingStarterProperties.getWebRequestBodyMaskedProps()) {
             try {
                 context.map(attributePath, (o, configuration) -> "***");
             } catch (PathNotFoundException e) {
