@@ -28,8 +28,8 @@ jar {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:3.2.5'
-    implementation 'org.springframework.boot:spring-boot-starter-aop:3.2.5'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
     implementation 'com.jayway.jsonpath:json-path:2.9.0'

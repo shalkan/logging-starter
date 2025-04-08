@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
 import ru.shalkan.loggingstarter.common.LoggingStarterProperties;
 import ru.shalkan.loggingstarter.dto.RequestDirection;
+import ru.shalkan.loggingstarter.util.MaskingHelper;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -19,10 +20,13 @@ import java.util.stream.Collectors;
 @Service
 public class FeignRequestLogger extends Logger {
 
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(FeignRequestLogger.class);
+
     @Autowired
     private LoggingStarterProperties loggingStarterProperties;
 
-    private static final org.slf4j.Logger log = LoggerFactory.getLogger(FeignRequestLogger.class);
+    @Autowired
+    private MaskingHelper maskingHelper;
 
     @Override
     protected void log(String s, String s1, Object... objects) {
@@ -38,7 +42,7 @@ public class FeignRequestLogger extends Logger {
 
         if (loggingStarterProperties.getLogFeignRequestsBody()) {
             String body = new String(request.body(), StandardCharsets.UTF_8);
-            log.info("[{}] Запрос: {} {} {} body={}", RequestDirection.OUT, method, requestURI, headers, body);
+            log.info("[{}] Запрос: {} {} {} body={}", RequestDirection.OUT, method, requestURI, headers, maskingHelper.prepareMaskedBody(body));
         } else {
             log.info("[{}] Запрос: {} {} {}", RequestDirection.OUT, method, requestURI, headers);
         }
@@ -54,7 +58,7 @@ public class FeignRequestLogger extends Logger {
         int status = response.status();
 
         if (loggingStarterProperties.getLogFeignRequestsBody()) {
-            log.info("[{}] Ответ: {} {} {} body={}", RequestDirection.OUT, method, url, status, responseBody);
+            log.info("[{}] Ответ: {} {} {} body={}", RequestDirection.OUT, method, url, status, maskingHelper.prepareMaskedBody(responseBody));
         } else {
             log.info("[{}] Ответ: {} {} {}", RequestDirection.OUT, method, url, status);
         }
