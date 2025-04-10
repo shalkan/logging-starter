@@ -1,0 +1,87 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ru.shalkan",
+    "module": "logging-starter",
+    "version": "1.4-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "logging-starter-1.4-SNAPSHOT-plain.jar",
+          "url": "logging-starter-1.4-SNAPSHOT-plain.jar",
+          "size": 16240,
+          "sha512": "bf54a94df8fdc89d58f7429e47de2877c2df22a373db0f8b36f054171341f32ca19d1ce3ca504e648d1e0b1387488c8cd6a3c7281823faa4525275dfe1975f10",
+          "sha256": "1ec1c6117a3e3401a6877d9d16c472ab7a2108728760005579731e157731437e",
+          "sha1": "2ea2a23c5c55bf4f4eefac0cb7678dd6e8f88bc3",
+          "md5": "3a3781f46d74aaacc918e7fd4bbf9b80"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-web",
+          "version": {
+            "requires": "3.2.5"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-aop",
+          "version": {
+            "requires": "3.2.5"
+          }
+        },
+        {
+          "group": "org.springframework.cloud",
+          "module": "spring-cloud-starter-openfeign"
+        },
+        {
+          "group": "com.jayway.jsonpath",
+          "module": "json-path",
+          "version": {
+            "requires": "2.9.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "logging-starter-1.4-SNAPSHOT-plain.jar",
+          "url": "logging-starter-1.4-SNAPSHOT-plain.jar",
+          "size": 16240,
+          "sha512": "bf54a94df8fdc89d58f7429e47de2877c2df22a373db0f8b36f054171341f32ca19d1ce3ca504e648d1e0b1387488c8cd6a3c7281823faa4525275dfe1975f10",
+          "sha256": "1ec1c6117a3e3401a6877d9d16c472ab7a2108728760005579731e157731437e",
+          "sha1": "2ea2a23c5c55bf4f4eefac0cb7678dd6e8f88bc3",
+          "md5": "3a3781f46d74aaacc918e7fd4bbf9b80"
+        }
+      ]
+    }
+  ]
+}

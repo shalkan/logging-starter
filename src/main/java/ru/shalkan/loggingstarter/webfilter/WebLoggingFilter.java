@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.ContentCachingResponseWrapper;
+import ru.shalkan.loggingstarter.dto.RequestDirection;
 import ru.shalkan.loggingstarter.util.MaskingHelper;
 
 import java.io.IOException;
@@ -34,13 +35,13 @@ public class WebLoggingFilter extends HttpFilter {
         String requestURI = request.getRequestURI() + formatQueryString(request);
         String headers = inlineHeaders(request);
 
-        log.info("Запрос: {} {} {}", method, requestURI, headers);
+        log.info("[{}] Запрос: {} {} {}", RequestDirection.IN,  method, requestURI, headers);
 
         ContentCachingResponseWrapper responseWrapper = new ContentCachingResponseWrapper(response);
         try {
             super.doFilter(request, responseWrapper, chain);
             String responseBody = new String(responseWrapper.getContentAsByteArray(), StandardCharsets.UTF_8);
-            log.info("Ответ: {} {} {} {}", method, requestURI, response.getStatus(), maskingHelper.prepareMaskedBody(responseBody));
+            log.info("[{}] Ответ: {} {} {} {}", RequestDirection.IN, method, requestURI, response.getStatus(), maskingHelper.prepareMaskedBody(responseBody));
         } finally {
             responseWrapper.copyBodyToResponse();
         }

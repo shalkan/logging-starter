@@ -1,10 +1,12 @@
 package ru.shalkan.loggingstarter;
 
+import feign.Logger;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import ru.shalkan.loggingstarter.aspect.LogExecutionAspect;
-import ru.shalkan.loggingstarter.common.LogginStarterProperties;
+import ru.shalkan.loggingstarter.common.LoggingStarterProperties;
+import ru.shalkan.loggingstarter.feign.FeignRequestLogger;
 import ru.shalkan.loggingstarter.util.MaskingHelper;
 import ru.shalkan.loggingstarter.webfilter.WebLoggingFilter;
 import ru.shalkan.loggingstarter.webfilter.WebLoggingRequestBodyAdvice;
@@ -31,12 +33,24 @@ public class LoggingStarterAutoConfiguration {
     }
 
     @Bean
-    public LogginStarterProperties logginStarterProperties() {
-        return new LogginStarterProperties();
+    public LoggingStarterProperties loggingStarterProperties() {
+        return new LoggingStarterProperties();
     }
 
     @Bean
     public MaskingHelper maskingHelper() {
         return new MaskingHelper();
+    }
+
+    @Bean
+    @ConditionalOnProperty(prefix = "logging", name = "log-feign-requests", havingValue = "true")
+    public FeignRequestLogger feignRequestLogger() {
+        return new FeignRequestLogger();
+    }
+
+    @Bean
+    @ConditionalOnProperty(prefix = "logging", name = "log-feign-requests", havingValue = "true")
+    public Logger.Level feignLoggerLevel() {
+        return Logger.Level.BASIC;
     }
 }
